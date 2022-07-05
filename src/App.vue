@@ -1,19 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MyComponent :text="text" @inc="inc" />
+    <input type="text" v-model="cunt" />
+    <p>cunt: {{ cunt }}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyComponent from "./components/MyComponent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    MyComponent,
+  },
+  data() {
+    return {
+      text: "Hello",
+      cunt: "",
+    };
+  },
+  methods: {
+    inc() {
+      console.log("сработало событие!");
+    },
+  },
+};
 </script>
 
 <style>
